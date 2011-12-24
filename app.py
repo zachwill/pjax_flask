@@ -2,9 +2,10 @@
 
 """Testing Flask with PJAX."""
 
+from argparse import ArgumentParser
 from flask import Flask, request, render_template
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static', template_folder='templates')
 
 
 def pjax(template):
@@ -36,3 +37,21 @@ def blue():
 def green():
     """Render the green color page."""
     return pjax('green.html')
+
+
+def find_port():
+    """Find the port to run the application on."""
+    parser = ArgumentParser()
+    parser.add_argument('port', nargs='?', default=5000, type=int,
+                        help="An integer for the port you want to use.")
+    args = parser.parse_args()
+    return args.port
+
+
+def main():
+    port = find_port()
+    app.run(debug=True, port=port)
+
+
+if __name__ == '__main__':
+    main()
