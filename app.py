@@ -27,16 +27,16 @@ def red():
     return pjax('red.html')
 
 
-@app.route('/blue')
-def blue():
-    """Render the blue color page."""
-    return pjax('blue.html')
-
-
 @app.route('/green')
 def green():
     """Render the green color page."""
     return pjax('green.html')
+
+
+@app.route('/blue')
+def blue():
+    """Render the blue color page."""
+    return pjax('blue.html')
 
 
 def find_port():

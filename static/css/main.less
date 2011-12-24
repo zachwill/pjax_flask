@@ -7,16 +7,22 @@ body{
 }
 
 .topbar{
-    a{
-        color: #fff;
-        &:hover{
-            background: @red;
-        }
+  a{
+    color: #fff;
+    &:hover{
+      background: @red;
     }
-    .fill{
-        background: darken(@red, 10%);
-        #gradient > .vertical(@red, darken(@red, 5%));
-    }
+  }
+  .fill{
+    background: darken(@red, 10%);
+    #gradient > .vertical(@red, darken(@red, 5%));
+  }
+  .vertical-divider{
+    border-left: 1px solid darken(@red, 10%);
+    border-right: 1px solid lighten(@red, 5%);
+    height: 18px;
+    margin: 10px 4px 11px;
+  }
 }
 
 .red{
