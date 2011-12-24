@@ -1,8 +1,25 @@
+@import "mixins.less";
+
+@red: #bf0b37;
+
+.topbar{
+    a{
+        color: #fff;
+        &:hover{
+            background: @red;
+        }
+    }
+    .fill{
+        background: darken(@red, 10%);
+        #gradient > .vertical(@red, darken(@red, 5%));
+    }
+}
+
 .red{
   background: red;
 }
 
-.blue{
+.red{
   background: blue;
 }
 
