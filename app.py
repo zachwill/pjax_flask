@@ -50,7 +50,7 @@ def find_port():
 
 def main():
     port = find_port()
-    app.run(debug=True, port=port)
+    app.run(debug=True, host='0.0.0.0', port=port)
 
 
 if __name__ == '__main__':
