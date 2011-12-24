@@ -1,7 +1,22 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="utf-8">
+
+    <meta name="author" content="Zach Williams, zachwill.com" />
+    <meta name="description" content="A simple app testing out Flask with PJAX." />
+    <meta name="viewport" content="width=980" />
+
     <title>Testing Flask with PJAX</title>
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="shortcut icon" href="/static/favicon.ico">
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/css/main.css">
+
   </head>
 
   <body>
@@ -16,5 +31,23 @@
     <footer>
       {% include "footer.html" %}
     </footer>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="/static/js/jquery.pjax.js"></script>
+    <script src="/static/js/application.js"></script>
+
+    <script>
+      var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+      g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+      s.parentNode.insertBefore(g,s)}(document,'script'));
+    </script>
+
+
+    <!-- Prompt IE < 8 users to install Chrome Frame. -->
+    <!--[if lt IE 8 ]>
+      <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+      <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+    <![endif]-->
   </body>
 </html>
