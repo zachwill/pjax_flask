@@ -21,22 +21,22 @@ def home():
     return pjax('home.html')
 
 
-@app.route('/red')
-def red():
-    """Render the red color page."""
-    return pjax('red.html')
+@app.route('/planes')
+def planes():
+    """Render the planes page."""
+    return pjax('planes.html')
 
 
-@app.route('/green')
-def green():
-    """Render the green color page."""
-    return pjax('green.html')
+@app.route('/trains')
+def trains():
+    """Render the trains page."""
+    return pjax('trains.html')
 
 
-@app.route('/blue')
-def blue():
-    """Render the blue color page."""
-    return pjax('blue.html')
+@app.route('/automobiles')
+def automobiles():
+    """Render the automobiles page."""
+    return pjax('automobiles.html')
 
 
 def find_port():
@@ -48,10 +48,10 @@ def find_port():
     return args.port
 
 
-def main():
+def serve():
     port = find_port()
     app.run(debug=True, host='0.0.0.0', port=port)
 
 
 if __name__ == '__main__':
-    main()
+    serve()
