@@ -1,0 +1,103 @@
+{% raw %}
+<div class="container">
+  <div class="page-header">
+    <h1>Flask PJAX <small>A simple example site</small></h1>
+  </div>
+
+  <div class="row">
+    <div class="span4">
+      <h2>Templating</h2>
+      <p>A few protips for creating your templates.</p>
+    </div>
+    <div class="span12">
+      <h3>No blocks, no problem.</h3>
+      <p>The easiest way to set up your templates is without <code>blocks</code>.</p>
+
+<pre class="prettyprint">
+&lt;!-- ohai.html --&gt;
+
+&lt;div class="container"&gt;
+  &lt;div class="row"&gt;
+    &lt;h1&gt;ohai&lt;/h1&gt;
+    &lt;p&gt;Welcome to the home page.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+
+      <p>And then use the <code>include</code> tag in your base template.</p>
+
+<pre class="prettyprint">
+&lt;!-- base.html --&gt;
+
+&lt;div id="main" role="main"&gt;
+  {% include template %}
+&lt;/div&gt;
+</pre>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="span4">
+      <h2>Rendering</h2>
+      <p>A quick protip for rendering templates.</p>
+    </div>
+    <div class="span12">
+      <h3>How do I include?</h3>
+      <p>This way you can set up a function to render templates that aren't
+      requested by <code>PJAX</code> &mdash; which will then default to the
+      <code>include</code> tag.</p>
+
+<pre class="prettyprint">
+def pjax(template):
+    """Determine whether the request was made by PJAX."""
+    if "X-PJAX" in request.headers:
+        return render_template(template)
+    return render_template("base.html", template=template)
+</pre>
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="span4">
+      <h2>PJAXing</h2>
+      <p>And, let's tie it all together.</p>
+    </div>
+    <div class="span12">
+      <h3>Wrapping it all up.</h3>
+      <p>Lastly, you'll just need to add a <code>data</code> attribute to your
+      links that points to the selector that will have its content replaced by
+      the successful PJAX call.</p>
+
+<pre class="prettyprint">
+&lt;a href="/planes" data-pjax="#main"&gt;Planes&lt;/a&gt;
+</pre>
+
+      <p>And, you'll need to finally initialize the <code>PJAX</code> JavaScript.</p>
+
+<pre class="prettyprint">
+$(function() {
+  $('a[data-pjax]').pjax()
+})
+</pre>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="span4">
+      <h2>Linking</h2>
+      <p>Just in case you're interested.</p>
+    </div>
+    <div class="span12">
+      <h3>Now with 100% spam-free links.</h3>
+      <p>As always, all of the
+      <a href="http://github.com/zachwill/pjax_flask">source code</a> is
+      available on my <a href="http://github.com/zachwill">Github account</a>.
+      And, if you're interested in checking out any of my other projects, here's a link to
+      <a href="http://zachwill.com">personal site</a> and
+      <a href="http://twitter.com/zachwill">Twitter account</a>.</p>
+    </div>
+  </div>
+
+</div>
+{% endraw %}
